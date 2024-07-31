@@ -21,12 +21,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function store(Request $request){
-        /* echo '<pre>';
-        print_r($request->all());
-        echo '</pre>';
-        exit(); */
+    /**
+     * Store Function
+     *
+     * @param   object $request
+     * @return  layout
+     */
+    public function store(Request $request)
+    {
         $validator = validator($request->all(), [
             "name"    => "required",
             "email"  => "required",
@@ -61,7 +63,12 @@ class HomeController extends Controller
             return redirect()->back()->with('error', $message);
         }
     }
-
+    /**
+     * Booking Dates Function
+     *
+     * @param   object  $request
+     * @return  json    $response
+     */
     public function getBookingDates(Request $request){
         $post = $request->all();
         if (isset($_POST['selectedMonth']) && $_POST['selectedMonth']=='YES') {
@@ -74,7 +81,6 @@ class HomeController extends Controller
                     $exploded_dates[] = explode('-', $value['booking_dates']);
                 }
             }
-
 
             $mergedArray = call_user_func_array('array_merge', $exploded_dates);
 
@@ -90,7 +96,12 @@ class HomeController extends Controller
             return json_encode(array('response' => $dates_array));
         }
     }
-
+    /**
+     * Get Dates Between Function
+     *
+     * @param   object  $request
+     * @return  json    $response
+     */
     public function getDatesBetween($startDate, $endDate) {
         $dates = [];
 

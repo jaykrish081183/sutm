@@ -15,9 +15,21 @@ use Yajra\DataTables\Facades\DataTables;
 
 class BookingController extends Controller
 {
+    /**
+     * Admin Booking Page
+     *
+     * @param    void
+     * @return  layout
+     */
     public function index(){
         return view('admin.booking.index');
     }
+    /**
+     * Admin Booking Data
+     *
+     * @param       string      $bookings
+     * @return      datatable
+     */
     public function getBookings($bookings){
         if($bookings=='all'){
             $booking_data = Booking::orderBy('id', 'desc')->get()->toArray();
@@ -78,54 +90,12 @@ class BookingController extends Controller
         ->rawColumns(['action','id','name','email', 'mobile', 'booking_dates', 'street', 'suburb', 'postcode', 'payment_method', 'payment_date', 'payment_amount', 'payment_comment', 'status'])
         ->make(true);
     }
-    public function create(){
-        return view('admin.course.create');
-    }
-    public function store(Request $request){
-        $validator = validator($request->all(), [
-            "name"    => "required",
-            "code"  => "required",
-            "duration"  => "required",
-            "mode_of_delivery"  => "required",
-            "fees"  => "required",
-            "career_outcomes"  => "required",
-            "description"  => "required",
-        ]);
-        if ($validator->fails()) {
-            return redirect(url()->previous())
-                    ->withErrors($validator)
-                    ->withInput();
-        }
-
-        try {
-            $path = 'storage/course/';
-            if (isset($request->image)) {
-                $type = $request->image->getClientOriginalExtension();
-                $image = 'course_' . time() . "." . $type;
-                Storage::disk('public')->put("course/" . $image, File::get($request->file('image')));
-                $name = $path.$image;
-            }
-            $booking_data = [
-                'name' => $request->name,
-                'code' => $request->code,
-                'duration' => $request->duration,
-                'mode_of_delivery' => $request->mode_of_delivery,
-                'fees' => $request->fees,
-                'image' => $image,
-                'career_outcomes' => $request->career_outcomes,
-                'description' => $request->description,
-            ];
-            Course::create($booking_data);
-            session()->flash('message', "Course created successfully.");
-            return redirect()->back();
-        } catch (Exception $e) {
-            $message = $e->getMessage();
-        }
-    }
-    public function edit(Request $request, $id){
-        $booking_data = Course::where('id',base64_decode($id))->first()->toArray();
-        return view('admin.course.edit',compact('booking_data'));
-    }
+    /**
+     * Admin Update Booking Data
+     *
+     * @param       object      $request
+     * @return      json        $response
+     */
     public function update(Request $request){
         $validator = Validator::make($request->all(), [
             "payment_amount"    => "required",
@@ -166,6 +136,12 @@ class BookingController extends Controller
             $message = $e->getMessage();
         }
     }
+    /**
+     * Admin Update Booking Date
+     *
+     * @param       object      $request
+     * @return      json        $response
+     */
     public function bookingDatesUpdate(Request $request){
         $validator = Validator::make($request->all(), [
             "booking_dates"  => "required",
@@ -194,6 +170,12 @@ class BookingController extends Controller
             return response()->json($response);
         }
     }
+    /**
+     * Admin Delete Booking Data
+     *
+     * @param       object      $request
+     * @return      json        $response
+     */
     public function delete(Request $request){
         $id = $request->id;
         if(isset($id)){
