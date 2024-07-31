@@ -87,7 +87,10 @@ class BookingController extends Controller
         ->addColumn('status', function ($row) {
             return (isset($row['status']) && $row['status']==1)?'Pending':'Confirmed';
         })
-        ->rawColumns(['action','id','name','email', 'mobile', 'booking_dates', 'street', 'suburb', 'postcode', 'payment_method', 'payment_date', 'payment_amount', 'payment_comment', 'status'])
+        ->addColumn('created_at', function ($row) {
+            return (isset($row['created_at']))?date('d-m-Y',strtotime($row['created_at'])):'';
+        })
+        ->rawColumns(['action','id','name','email', 'mobile', 'booking_dates', 'street', 'suburb', 'postcode', 'payment_method', 'payment_date', 'payment_amount', 'payment_comment', 'status','created_at'])
         ->make(true);
     }
     /**
