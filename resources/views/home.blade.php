@@ -16,7 +16,7 @@
                 <div class="container">
                     <div class="row mt-2">
                         <div class="col-md-12" >
-                            <img src="{{asset('assets/img/mataji_pic.jpg')}}" alt="IMG" height="250" width="1120" style="border-radius: 10px;">
+                            <img src="{{asset('assets/img/new_mataji_pic.jpg')}}" alt="IMG" height="400" width="1120" style="border-radius: 10px;">
                             {{-- <a href="listing.php" class="btn btn-primary mt-3">Booking List</a> --}}
                         </div>
                         <div class="col-md-12 mt-2">
