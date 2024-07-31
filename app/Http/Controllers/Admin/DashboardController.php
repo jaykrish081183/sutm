@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    /**
+     * Booking Page with status
+     *
+     * @param    void
+     * @return  layout
+     */
     public function index(){
         $bookings = Booking::all()->count();
         $confirmed = Booking::where('status',2)->count();
