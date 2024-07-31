@@ -135,7 +135,16 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" name="booking_dates" id="booking_dates" value="" class="form-control"/>
+                                                        {{-- <input type="text" name="booking_dates" id="booking_dates" value="" class="form-control"/> --}}
+                                                        {{-- <label for="booking_dates">Select Booking Date:</label> --}}
+                                                        <select name="booking_dates" id="booking_dates" class="form-control">
+                                                            <option value="">Select Booking</option>
+                                                            <option value="August 2024">August 2024</option>
+                                                            <option value="September 2024">September 2024</option>
+                                                            <option value="October 2024">October 2024</option>
+                                                            <option value="November 2024">November 2024</option>
+                                                            <option value="December 2024">December 2024</option>
+                                                        </select>
                                                         <span id="booking_dates_error" style="color:red;"></span>
                                                     </div>
                                                 </div>
@@ -252,7 +261,7 @@
             var error = 0;
 
             if(booking_dates==''){
-                $('#booking_dates_error').html('Please select booking dates.');
+                $('#booking_dates_error').html('Please select booking.');
                 error = 1;
             }else{
                 $('#booking_dates_error').html('');
@@ -285,7 +294,7 @@
 
         });
 
-        $.ajax({
+        /* $.ajax({
             url:route_get_booking_dates,
             method:'post',
             'headers': {
@@ -302,13 +311,13 @@
                         cancelLabel: 'Clear',
                         format: 'DD/MM/YYYY'
                     },
-                    /* isInvalidDate: function(date) {
-                        // Convert date to YYYY-MM-DD format
-                        var formattedDate = date.format('DD/MM/YYYY');
+                    // isInvalidDate: function(date) {
+                    //     // Convert date to YYYY-MM-DD format
+                    //     var formattedDate = date.format('DD/MM/YYYY');
 
-                        // Check if the date is in the disabledDates array
-                        return disabledDates.includes(formattedDate);
-                    } */
+                    //     // Check if the date is in the disabledDates array
+                    //     return disabledDates.includes(formattedDate);
+                    // }
                 });
 
                 // Clear date range picker input when Clear button is clicked
@@ -319,7 +328,7 @@
             error: function(error) {
                 console.error('Error fetching dates data:', error);
             }
-        });
+        }); */
 
     });
 </script>
