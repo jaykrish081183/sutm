@@ -57,7 +57,7 @@
                                             11) કૃપા કરીને સૂચનાઓનું પાલન કરવું.<br><br>
                                         </li>
                                         <li><span><b>Maintaining Protocols:</b></span><span>&nbsp;</span><span>The host is responsible for ensuring all required protocols for managing the Mataji Murti are followed throughout the registration period</span></li>
-                                        <li><span><b>Registration:&nbsp;</b><span>A Payment of $150 is required for this registration.Once your booking is confirmed, you will be requested for submitting the payment.</span><br></span></li>
+                                        <li><span><b>Registration:&nbsp;</b><span>A Payment of $501 is required for this registration.Once your booking is confirmed, you will be requested for submitting the payment.</span><br></span></li>
                                         <li><b>Financial Contribution : </b><span>Host can contribute as per his/her wish. All Financial Contributions received will be used for the Temple Sankalp .&nbsp;</span></li>
                                     </ul>
                                 </div>
