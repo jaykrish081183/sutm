@@ -16,8 +16,7 @@
                 <div class="container">
                     <div class="row mt-2">
                         <div class="col-md-12" >
-                            <img src="{{asset('assets/img/new_mataji_pic.jpg')}}" alt="IMG" height="400" width="1120" style="border-radius: 10px;">
-                            {{-- <a href="listing.php" class="btn btn-primary mt-3">Booking List</a> --}}
+                            <img src="{{asset('assets/img/new_mataji_pic.jpg')}}" class="img-fluid" alt="IMG" height="400" width="1120" style="border-radius: 10px;">
                         </div>
                         <div class="col-md-12 mt-2">
                             @if (session('success'))
