@@ -42,12 +42,14 @@
         <footer>
             <div>
                 <p>© 2024 All rights reserved by SUTM.</p>
-                <p>Contact us: <a href="mailto:info@sutm.org.au" style="color:blue">info@sutm.org.au</a> | Phone: 043 231 3214 <a href="https://www.facebook.com/sutmelb/" target="_blank" style="margin-left:10px;font-size: 15px"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/Sutmelb" target="_blank" style="margin-left:10px;font-size: 15px"><i class="fab fa-instagram"></i></a></p>
-                    <p>Designed &amp; Developed By:
-                        <span style="color:black">Jayesh Patel</span>
-                        (<a href="mailto:jaykrish081183@gmail.com" target="_blank" style="color:blue">jaykrish081183@gmail.com</a>)
-                    </p>
+                <p>Contact us: <a href="mailto:info@sutm.org.au" style="color:blue">info@sutm.org.au</a> | Phone: 043 231 3214
+                    <a href="https://www.facebook.com/sutmelb/" target="_blank" style="margin-left:10px;font-size: 15px"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/Sutmelb" target="_blank" style="margin-left:10px;font-size: 15px"><i class="fab fa-instagram"></i></a>
+                </p>
+                <p>Designed &amp; Developed By:
+                    <span style="color:black">Jayesh Patel</span>
+                    (<a href="mailto:jaykrish081183@gmail.com" target="_blank" style="color:blue">jaykrish081183@gmail.com</a>)
+                </p>
             </div>
         </footer>
     </div>
