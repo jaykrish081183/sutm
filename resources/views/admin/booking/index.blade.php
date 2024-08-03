@@ -38,6 +38,7 @@
                                             <th style="width:10%">NAME</th>
                                             <th style="width:10%">EMAIL</th>
                                             <th style="width:10%">MOBILE</th>
+                                            <th style="width:10%">SAMAJ<BR>GROUP</th>
                                             <th style="width:10%">BOOKING<BR>DATES</th>
                                             <th style="width:10%">STREET</th>
                                             <th style="width:10%">SUBURB</th>
@@ -188,6 +189,7 @@ $(document).ready(function() {
             { data: 'name', name: 'name'},
             { data: 'email', name: 'email'},
             { data: 'mobile', name: 'mobile'},
+            { data: 'samaj_group', name: 'samaj_group'},
             { data: 'booking_dates', name: 'booking_dates'},
             { data: 'street', name: 'street'},
             { data: 'suburb', name: 'suburb'},

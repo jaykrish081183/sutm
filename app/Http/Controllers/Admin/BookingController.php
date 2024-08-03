@@ -57,6 +57,9 @@ class BookingController extends Controller
         ->addColumn('email', function ($row) {
             return isset($row['email'])?$row['email']:'';
         })
+        ->addColumn('samaj_group', function ($row) {
+            return isset($row['samaj_group'])?$row['samaj_group']:'';
+        })
         ->addColumn('mobile', function ($row) {
             return isset($row['mobile'])?$row['mobile']:'';
         })
@@ -90,7 +93,7 @@ class BookingController extends Controller
         ->addColumn('created_at', function ($row) {
             return (isset($row['created_at']))?date('d-m-Y',strtotime($row['created_at'])):'';
         })
-        ->rawColumns(['action','id','name','email', 'mobile', 'booking_dates', 'street', 'suburb', 'postcode', 'payment_method', 'payment_date', 'payment_amount', 'payment_comment', 'status','created_at'])
+        ->rawColumns(['action','id','name','email', 'mobile','samaj_group', 'booking_dates', 'street', 'suburb', 'postcode', 'payment_method', 'payment_date', 'payment_amount', 'payment_comment', 'status','created_at'])
         ->make(true);
     }
     /**

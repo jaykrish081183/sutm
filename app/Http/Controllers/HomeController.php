@@ -37,6 +37,7 @@ class HomeController extends Controller
             "street"  => "required",
             "suburb"  => "required",
             "postcode"  => "required",
+            "samaj_group"  => "required",
         ]);
         if ($validator->fails()) {
             return redirect(url()->previous())
@@ -49,6 +50,7 @@ class HomeController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
+                'samaj_group' => $request->samaj_group,
                 'booking_dates' => $request->booking_dates,
                 'street' => $request->street,
                 'status' => 1,

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('street')->nullable();
             $table->string('suburb')->nullable();
             $table->string('postcode')->nullable();
+            $table->string('samaj_group')->nullable();
             $table->text('comment')->nullable();
             $table->text('payment_method')->nullable();
             $table->text('payment_amount')->nullable();

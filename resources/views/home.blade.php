@@ -85,6 +85,11 @@
                                             <span id="mobile_error" style="color:red;"></span>
                                         </div>
                                         <div class="form-group mt-3 mb-3">
+                                            <label for="samaj_group">Samaj Group <span style="color:red;">*</span></label>
+                                            <input type="text" class="form-control" id="samaj_group" name="samaj_group" required>
+                                            <span id="samaj_group_error" style="color:red;"></span>
+                                        </div>
+                                        <div class="form-group mt-3 mb-3">
                                             <button class="btn btn-primary next">Next</button>
                                         </div>
                                     </div>
@@ -130,7 +135,7 @@
                                 <div class="row">
                                     <div class="col-md-12 mt-3">
                                         <div class="form-group mt-3">
-                                            <label for="booking_dates">Estimated Month of Padhramni ( Not Guaranteed , Please choose the date from Sunday To Monday (one Week only))<span style="color:red;">*</span></label>
+                                            <label for="booking_dates">Estimated Month of Padhramni ( Not Guaranteed )<span style="color:red;">*</span></label>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
@@ -165,8 +170,8 @@
                                             <span id="postcode_error" style="color:red;"></span>
                                         </div>
                                         <div class="form-group mt-3 mb-3">
-                                            <label for="comment">Any Special Comments </label>
-                                            <input type="text" class="form-control" id="street" name="comment" required>
+                                            <label for="comment">Any Comments </label>
+                                            <input type="text" class="form-control" id="street" name="comment" >
                                         </div>
                                         <div class="form-group mt-3 mb-3">
                                             <button class="btn btn-info previous">Back</button>
@@ -204,6 +209,7 @@
             var name = $('#name').val();
             var mobile = $('#mobile').val();
             var email = $('#email').val();
+            var samaj_group = $('#samaj_group').val();
             var error = 0;
             if(name==''){
                 $('#name_error').html('Please enter full name');
@@ -217,6 +223,13 @@
                 error = 1;
             }else{
                 $('#email_error').html('');
+                error = 0;
+            }
+            if(samaj_group==''){
+                $('#samaj_group_error').html('Please enter samaj group.');
+                error = 1;
+            }else{
+                $('#samaj_group_error').html('');
                 error = 0;
             }
             if(mobile==''){
