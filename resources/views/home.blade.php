@@ -148,6 +148,10 @@
                                                             <option value="October 2024">October 2024</option>
                                                             <option value="November 2024">November 2024</option>
                                                             <option value="December 2024">December 2024</option>
+                                                            <option value="January 2025">January 2025</option>
+                                                            <option value="February 2025">February 2025</option>
+                                                            <option value="March 2025">March 2025</option>
+                                                            <option value="April 2025">April 2025</option>
                                                         </select>
                                                         <span id="booking_dates_error" style="color:red;"></span>
                                                     </div>
