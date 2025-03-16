@@ -16,8 +16,7 @@
                 <div class="container">
                     <div class="row mt-2">
                         <div class="col-md-12" >
-                            <img src="{{asset('assets/img/new_mataji_pic.jpg')}}" alt="IMG" height="400" width="1120" style="border-radius: 10px;">
-                            {{-- <a href="listing.php" class="btn btn-primary mt-3">Booking List</a> --}}
+                            <img src="{{asset('assets/img/new_mataji_pic.jpg')}}" class="img-fluid" alt="IMG" height="400" width="1120" style="border-radius: 10px;">
                         </div>
                         <div class="col-md-12 mt-2">
                             @if (session('success'))
@@ -57,7 +56,7 @@
                                             11) કૃપા કરીને સૂચનાઓનું પાલન કરવું.<br><br>
                                         </li>
                                         <li><span><b>Maintaining Protocols:</b></span><span>&nbsp;</span><span>The host is responsible for ensuring all required protocols for managing the Mataji Murti are followed throughout the registration period</span></li>
-                                        <li><span><b>Registration:&nbsp;</b><span>A Payment of $150 is required for this registration.Once your booking is confirmed, you will be requested for submitting the payment.</span><br></span></li>
+                                        <li><span><b>Registration:&nbsp;</b><span>A Payment of $501 is required for this registration.Once your booking is confirmed, you will be requested for submitting the payment.</span><br></span></li>
                                         <li><b>Financial Contribution : </b><span>Host can contribute as per his/her wish. All Financial Contributions received will be used for the Temple Sankalp .&nbsp;</span></li>
                                     </ul>
                                 </div>
@@ -84,6 +83,11 @@
                                             <label for="mobile">Mobile No <span style="color:red;">*</span></label>
                                             <input type="number" class="form-control" id="mobile" name="mobile" required minlength="10" maxlength="10">
                                             <span id="mobile_error" style="color:red;"></span>
+                                        </div>
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="samaj_group">Samaj Group <span style="color:red;">*</span></label>
+                                            <input type="text" class="form-control" id="samaj_group" name="samaj_group" required>
+                                            <span id="samaj_group_error" style="color:red;"></span>
                                         </div>
                                         <div class="form-group mt-3 mb-3">
                                             <button class="btn btn-primary next">Next</button>
@@ -131,11 +135,24 @@
                                 <div class="row">
                                     <div class="col-md-12 mt-3">
                                         <div class="form-group mt-3">
-                                            <label for="booking_dates">Estimated Month of Padhramni ( Not Guaranteed , Please choose the date from Sunday To Monday (one Week only))<span style="color:red;">*</span></label>
+                                            <label for="booking_dates">Estimated Month of Padhramni ( Not Guaranteed )<span style="color:red;">*</span></label>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" name="booking_dates" id="booking_dates" value="" class="form-control"/>
+                                                        {{-- <input type="text" name="booking_dates" id="booking_dates" value="" class="form-control"/> --}}
+                                                        {{-- <label for="booking_dates">Select Booking Date:</label> --}}
+                                                        <select name="booking_dates" id="booking_dates" class="form-control">
+                                                            <option value="">Select Booking</option>
+                                                            <option value="August 2024">August 2024</option>
+                                                            <option value="September 2024">September 2024</option>
+                                                            <option value="October 2024">October 2024</option>
+                                                            <option value="November 2024">November 2024</option>
+                                                            <option value="December 2024">December 2024</option>
+                                                            <option value="January 2025">January 2025</option>
+                                                            <option value="February 2025">February 2025</option>
+                                                            <option value="March 2025">March 2025</option>
+                                                            <option value="April 2025">April 2025</option>
+                                                        </select>
                                                         <span id="booking_dates_error" style="color:red;"></span>
                                                     </div>
                                                 </div>
@@ -157,8 +174,8 @@
                                             <span id="postcode_error" style="color:red;"></span>
                                         </div>
                                         <div class="form-group mt-3 mb-3">
-                                            <label for="comment">Any Special Comments </label>
-                                            <input type="text" class="form-control" id="street" name="comment" required>
+                                            <label for="comment">Any Comments </label>
+                                            <input type="text" class="form-control" id="street" name="comment" >
                                         </div>
                                         <div class="form-group mt-3 mb-3">
                                             <button class="btn btn-info previous">Back</button>
@@ -196,6 +213,7 @@
             var name = $('#name').val();
             var mobile = $('#mobile').val();
             var email = $('#email').val();
+            var samaj_group = $('#samaj_group').val();
             var error = 0;
             if(name==''){
                 $('#name_error').html('Please enter full name');
@@ -209,6 +227,13 @@
                 error = 1;
             }else{
                 $('#email_error').html('');
+                error = 0;
+            }
+            if(samaj_group==''){
+                $('#samaj_group_error').html('Please enter samaj group.');
+                error = 1;
+            }else{
+                $('#samaj_group_error').html('');
                 error = 0;
             }
             if(mobile==''){
@@ -252,7 +277,7 @@
             var error = 0;
 
             if(booking_dates==''){
-                $('#booking_dates_error').html('Please select booking dates.');
+                $('#booking_dates_error').html('Please select booking.');
                 error = 1;
             }else{
                 $('#booking_dates_error').html('');
@@ -285,7 +310,7 @@
 
         });
 
-        $.ajax({
+        /* $.ajax({
             url:route_get_booking_dates,
             method:'post',
             'headers': {
@@ -302,13 +327,13 @@
                         cancelLabel: 'Clear',
                         format: 'DD/MM/YYYY'
                     },
-                    /* isInvalidDate: function(date) {
-                        // Convert date to YYYY-MM-DD format
-                        var formattedDate = date.format('DD/MM/YYYY');
+                    // isInvalidDate: function(date) {
+                    //     // Convert date to YYYY-MM-DD format
+                    //     var formattedDate = date.format('DD/MM/YYYY');
 
-                        // Check if the date is in the disabledDates array
-                        return disabledDates.includes(formattedDate);
-                    } */
+                    //     // Check if the date is in the disabledDates array
+                    //     return disabledDates.includes(formattedDate);
+                    // }
                 });
 
                 // Clear date range picker input when Clear button is clicked
@@ -319,7 +344,7 @@
             error: function(error) {
                 console.error('Error fetching dates data:', error);
             }
-        });
+        }); */
 
     });
 </script>

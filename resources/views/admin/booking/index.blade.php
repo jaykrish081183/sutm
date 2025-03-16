@@ -38,6 +38,7 @@
                                             <th style="width:10%">NAME</th>
                                             <th style="width:10%">EMAIL</th>
                                             <th style="width:10%">MOBILE</th>
+                                            <th style="width:10%">SAMAJ<BR>GROUP</th>
                                             <th style="width:10%">BOOKING<BR>DATES</th>
                                             <th style="width:10%">STREET</th>
                                             <th style="width:10%">SUBURB</th>
@@ -47,6 +48,7 @@
                                             <th style="width:10%">PAYMENT<BR>AMOUNT</th>
                                             <th style="width:10%">PAYMENT<BR>COMMENT</th>
                                             <th style="width:10%">STATUS</th>
+                                            <th style="width:10%">REGISTERED<BR>DATE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -169,7 +171,10 @@ $(document).ready(function() {
         'buttons': [{
             "extend": 'csv',
             "text": 'Export To CSV',
-            "className": 'btn btn-primary'
+            "className": 'btn btn-primary',
+            "exportOptions": {
+                "columns": [1,2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+            }
         }],
         ajax: {
             'url': route_get_booking_data,
@@ -184,6 +189,7 @@ $(document).ready(function() {
             { data: 'name', name: 'name'},
             { data: 'email', name: 'email'},
             { data: 'mobile', name: 'mobile'},
+            { data: 'samaj_group', name: 'samaj_group'},
             { data: 'booking_dates', name: 'booking_dates'},
             { data: 'street', name: 'street'},
             { data: 'suburb', name: 'suburb'},
@@ -193,6 +199,7 @@ $(document).ready(function() {
             { data: 'payment_amount', name: 'payment_amount'},
             { data: 'payment_comment', name: 'payment_comment'},
             { data: 'status', name: 'status'},
+            { data: 'created_at', name: 'created_at'},
         ],
         order: [1, 'desc']
     });

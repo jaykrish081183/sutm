@@ -22,6 +22,7 @@ class Booking extends Model
         'street',
         'suburb',
         'postcode',
+        'samaj_group',
         'payment_method',
         'payment_amount',
         'payment_date',
