@@ -43,13 +43,13 @@ class BookingController extends Controller
 
         return DataTables::of($booking_data)->addIndexColumn()
         ->addColumn('action', function ($row) {
-            $payment_link = '';
+            $payment = '';
             if($row['status']==1){
-                $payment_link = '<button type="button" class="btn btn-primary payment-btn" data-toggle="modal" data-id="' . $row['id'] . '" data-target="#paymentModal"><span class="fa fa-plus"></span> <i class="fa fa-usd" aria-hidden="true"></i></button>';
+                $payment = '<a href="javascript:void(0)" class="btn btn-primary payment-btn" data-toggle="modal" data-id="' . $row['id'] . '" data-target="#paymentModal"><span class="fa fa-plus"></span></a>';
             }
-            $edit = '<button type="button" class="btn btn-info me-2 edit-booking" data-toggle="modal" data-booking_dates="'.$row['booking_dates'].'" data-id="'.$row['id'].'" data-target="#bookingModal"><span class="fa fa-pencil"></span></button>';
+            $edit = '<a href="javascript:void(0)" class="btn btn-info me-2 edit-booking" data-toggle="modal" data-booking_dates="'.$row['booking_dates'].'" data-id="'.$row['id'].'" data-target="#bookingModal"><span class="fa fa-pencil"></span></a>';
             $delete = '<a href="javascript:void(0)" class="me-2 btn btn-danger" onclick="deleteBooking(this)" data-id="'.$row['id'].'"><span class="fa fa-trash"></span></a>';
-            return $edit."<br/><br/>".$delete."<br/><br/>".$payment_link;
+            return $payment." ".$edit." ".$delete;
         })
         ->addColumn('id', function ($row) {
             return isset($row['id'])?$row['id']:'';
